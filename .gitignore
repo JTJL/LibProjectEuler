@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# ProjectEular Solutions
+*.cc
+*.py
