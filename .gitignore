@@ -35,5 +35,6 @@
 *.cc
 *.py
 
-# IDE
+# Other
 .vscode/*
+temp/*
