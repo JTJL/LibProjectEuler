@@ -41,6 +41,20 @@ ll pw(ll p, ll q, ll mod) {
     return ret;
 }
 
+ll pow_large(__int128 p, ll q, ll mod) {
+    p %= mod;
+    __int128 ret = 1;
+    for (; q; q >>= 1) {
+        if (q & 1) ret = ret * p % mod;
+        p = p * p % mod;
+    }
+    return (ll)ret;
+}
+
+ll mul_large(ll p, ll q, ll mod) {
+	return (__int128)p * q % mod;
+}
+
 template <typename T>
 void maxi(T& x, T y) {
     x = max(x, y);
@@ -72,4 +86,9 @@ ll euler_phi(ll n) {
 template <typename T>
 T sqr(T x) {
     return x * x;
+}
+
+ll get_rand(ll n) {
+	// TODO
+	return rand() % n;
 }
