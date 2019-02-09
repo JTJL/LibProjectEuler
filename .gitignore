@@ -34,3 +34,6 @@
 # ProjectEular Solutions
 *.cc
 *.py
+
+# IDE
+.vscode/*
