@@ -5,11 +5,11 @@ namespace prime {
     ll PRM;
     vector<ll> pm, phi, mp;
     void init(int n) {
-        PRM = n;
+        PRM = n++;
         pm.clear();
         phi.assign(n, 1);
         mp.assign(n, 0);
-        for (int i = 2; i <= n; ++i) {
+        for (int i = 2; i < n; ++i) {
             if (!mp[i]) {
                 pm.push_back(i);
                 mp[i] = i, phi[i] = i - 1;
@@ -41,17 +41,17 @@ namespace prime {
         for (auto &x : pm) {
             if (x * x <= n) {
                 if (n % x == 0) {
-                    int cnt = 0;
+                    ll cnt = 0;
                     while (n % x == 0) {
                         cnt++;
                         n /= x;
                     }
-                    u.emplace(x, cnt);
+                    u.emplace_back(PLL(x, cnt));
                 }
             }
             else break;
         }
-        if (n > 1) u.emplace(n, 1);
+        if (n > 1) u.emplace_back(PLL(n, 1ll));
         return u;
     }
     bool miller_rabin(ll x) {
